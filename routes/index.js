@@ -25,7 +25,7 @@ router.post("/", upload.any(), function (req, res, next) {
   try {
     let file = req.files;
     let fileDetails = file.map((el) => {
-      return `http://localhost:3000/uploads/${el.filename}`;
+      return `${process.env.API}uploads/${el.filename}`;
     });
     res.status(201).json({
       status: "Success",
